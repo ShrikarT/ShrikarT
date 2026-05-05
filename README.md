@@ -1,4 +1,5 @@
-## Hi there 👋
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/162c7334-72ea-439b-8507-903f60115688" />
+
 
 <!--
 **ShrikarT/ShrikarT** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
