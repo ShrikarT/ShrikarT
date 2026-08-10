@@ -1,3 +1,5 @@
+![gif](https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif)
+
 ### hey, i'm shrikar
 
 i build things in web3 and ai. mostly at 3am, mostly things that probably shouldn't work.
