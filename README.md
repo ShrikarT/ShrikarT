@@ -8,19 +8,26 @@ i got here backwards — started trading crypto, got curious about what was actu
 
 <br clear="right" />
 
-#### what i'm doing right now
+**looking for** — roles where engineering meets product and ecosystem: gtm engineering, devrel, technical bd, founder associate. early-stage web3 and ai, seed to series b. remote or hyderabad. → [shrikartadkasat@gmail.com](mailto:shrikartadkasat@gmail.com)
 
-- writing zk circuits at **[hisoka.io](https://hisoka.io)** — a confidential dark pool. zk-utxo model, frost threshold schnorr sigs, sphinx mixnet routing, and making mev bots very sad
-- turning my hackathon repos into things that actually work end to end
-- posting about it on [x](https://x.com/0xshrikar)
+#### what i've worked on
+
+- **founding team at xythum labs**, now [hisoka.io](https://hisoka.io) — wrote zk circuits for a confidential dark pool. zk-utxo model, frost threshold schnorr signatures, sphinx packet routing over a mixnet. the whole point was leaving mev bots nothing to read
+- **state-sharded execution on monad** — worked out how to stop parallel orders from fighting over the same storage slots. became flashgrid
+- **circom circuits for private token launches** — encrypted contributions in, publicly verifiable distribution out. nobody sees who funded what
+- **on-chain forensics** — wallet risk scoring and multi-hop graph tracing, built around how investigators actually work rather than how devs assume they do
+- **zk reputation for ai agents** — proving an agent's track record without revealing a single job it took
+- **right now** — rebuilding my hackathon projects into things that work end to end, going deeper on evm internals, and writing about it on [x](https://x.com/0xshrikar)
 
 #### stuff i've built
 
-**[FlashGrid](https://github.com/ShrikarT/FlashGrid)** — state-sharded matching engine on monad. isolates orders across price ticks so they stop fighting over the same storage slots. 5x throughput over sequential contracts, 100 orders/block vs 20. *monad hackathon winner*
+**[FlashGrid](https://github.com/ShrikarT/FlashGrid)** — 5x throughput over sequential contracts by isolating orders across price ticks so they stop colliding on storage. 100 orders/block vs 20. *monad hackathon winner*
 
-**[BlockIntel](https://github.com/ShrikarT/blockintel)** — crypto intelligence platform for law enforcement. wallet risk scoring, zero-shot classification, graph tracing, pmla compliance. *smart india hackathon r2*
+**[BlockIntel](https://github.com/ShrikarT/blockintel)** — crypto intelligence for law enforcement. wallet risk scoring, zero-shot classification, graph tracing, pmla compliance. *smart india hackathon r2*
 
-**[GhostLaunch](https://github.com/ShrikarT/GhostLaunch)** — private ido launchpad built on encrypted erc. fund in the dark, distribute in the open, verify all of it.
+**[ProofWork](https://github.com/ShrikarT/ProofWork)** — agents bid on tasks and prove their reputation through midnight zk circuits without exposing job history, then get paid via cardano escrow. built on masumi (mip-003).
+
+**[GhostLaunch](https://github.com/ShrikarT/GhostLaunch)** — private ido launchpad on encrypted erc. fund in the dark, distribute in the open, verify all of it.
 
 **[ForkFlow](https://github.com/ShrikarT/ForkFlow)** — voice-controlled solana wallet. you say "swap tokens", jupiter does the rest. *namastejupiverse winner*
 
@@ -28,9 +35,10 @@ i got here backwards — started trading crypto, got curious about what was actu
 
 #### wins
 
-- 3x hackathon winner across web3 and ai
-- won avalanche pitch day india, representing hisoka.io
-- won avalanche team1 hackathon, hyderabad
+- won **namastejupiverse hackathon** — forkflow
+- won **monad hackathon** — flashgrid
+- won **avalanche team1 hackathon**, hyderabad
+- won **avalanche pitch day india**, representing xythum labs
 - avalanche grants program participant
 - smart india hackathon round 2 qualifier
 
@@ -44,12 +52,9 @@ i got here backwards — started trading crypto, got curious about what was actu
 
 #### telemetry
 
-<p align="left">
-  <img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=ShrikarT&theme=github_dark" />
-  <img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=ShrikarT&theme=github_dark" />
-</p>
+<img src="assets/telemetry.svg" width="100%" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=ShrikarT&bg_color=00000000&color=e6e6e6&line=e6e6e6&point=ffffff&area=true&area_color=8b8b93&hide_border=true&custom_title=shipping%20velocity" width="100%" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=ShrikarT&bg_color=0A0A0A&color=ffffff&line=ffffff&point=ffffff&area=true&area_color=333333&hide_border=true&custom_title=SHIPPING%20VELOCITY" width="100%" />
 
 #### other things
 
@@ -62,5 +67,3 @@ i'm still filling gaps in my cs fundamentals — if you catch me reaching for so
 #### say hi
 
 [x](https://x.com/0xshrikar) · [linkedin](https://www.linkedin.com/in/shrikartadkasat) · [shrikartadkasat@gmail.com](mailto:shrikartadkasat@gmail.com)
-
-<sub>looking for roles where engineering meets product and ecosystem — gtm engineering, devrel, technical bd, founder associate. early-stage web3/ai, remote or hyderabad.</sub>
