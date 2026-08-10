@@ -23,12 +23,12 @@ i'd rather ship something rough and fix it in public than read about it for six 
 
 #### wins
 
-- won **NamasteJupiverse hackathon**, hyderabad 
-- special mention in **monad hackathon**
-- won **avalanche team1 hackathon**, hyderabad
+- won **NamasteJupiverse hackathon**, hyd
+- won **avalanche team1 hackathon**, hyd
 - won **avalanche pitch day india**, representing xythum labs
-- avalanche grants program participant
-- smart india hackathon round 2 qualifier
+- special mention in **monad blitz hackathon**, hyd
+- Selected for **Team1's Mini Grants program** (India cohort) 
+- smart india hackathon 2025 round 2 qualifier
 
 #### stack
 
