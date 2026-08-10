@@ -4,39 +4,27 @@
 
 i build things in web3 and ai. mostly at 3am, mostly things that probably shouldn't work.
 
-i got here backwards — started trading crypto, got curious about what was actually happening under the charts, and ended up writing the contracts instead. 3rd year ece at cbit hyderabad, graduating 2027. i'd rather ship something rough and fix it in public than read about it for six months.
+i got here backwards 
+started trading crypto got curious about what was actually happening under the charts and ended up writing the contracts instead. 
+i'd rather ship something rough and fix it in public than read about it for six months.
 
 <br clear="right" />
 
-**looking for** — roles where engineering meets product and ecosystem: gtm engineering, devrel, technical bd, founder associate. early-stage web3 and ai, seed to series b. remote or hyderabad. → [shrikartadkasat@gmail.com](mailto:shrikartadkasat@gmail.com)
+**looking for** — roles where engineering meets product and ecosystem: gtm engineering, devrel, technical bd, founder associate. early-stage web3 and ai, seed to series b. remote or ready to move in n lock-in. → [shrikartadkasat@gmail.com](mailto:shrikartadkasat@gmail.com)
 
 #### what i've worked on
 
 - **founding team at xythum labs**, now [hisoka.io](https://hisoka.io) — wrote zk circuits for a confidential dark pool. zk-utxo model, frost threshold schnorr signatures, sphinx packet routing over a mixnet. the whole point was leaving mev bots nothing to read
-- **state-sharded execution on monad** — worked out how to stop parallel orders from fighting over the same storage slots. became flashgrid
-- **circom circuits for private token launches** — encrypted contributions in, publicly verifiable distribution out. nobody sees who funded what
-- **on-chain forensics** — wallet risk scoring and multi-hop graph tracing, built around how investigators actually work rather than how devs assume they do
-- **zk reputation for ai agents** — proving an agent's track record without revealing a single job it took
+- **[FlashGrid](https://github.com/ShrikarT/FlashGrid)** — 5x throughput over sequential contracts by isolating orders across price ticks so they stop colliding on storage. 100 orders/block vs 20. *monad hackathon winner*
+- **[BlockIntel](https://github.com/ShrikarT/blockintel)** — crypto intelligence for law enforcement. wallet risk scoring, zero-shot classification, graph tracing, pmla compliance. *smart india hackathon r2*
+- **[ProofWork](https://github.com/ShrikarT/ProofWork)** — agents bid on tasks and prove their reputation through midnight zk circuits without exposing job history, then get paid via cardano escrow. built on masumi (mip-003).
+- **[GhostLaunch](https://github.com/ShrikarT/GhostLaunch)** — private ido launchpad on encrypted erc. fund in the dark, distribute in the open, verify all of it.
 - **right now** — rebuilding my hackathon projects into things that work end to end, going deeper on evm internals, and writing about it on [x](https://x.com/0xshrikar)
-
-#### stuff i've built
-
-**[FlashGrid](https://github.com/ShrikarT/FlashGrid)** — 5x throughput over sequential contracts by isolating orders across price ticks so they stop colliding on storage. 100 orders/block vs 20. *monad hackathon winner*
-
-**[BlockIntel](https://github.com/ShrikarT/blockintel)** — crypto intelligence for law enforcement. wallet risk scoring, zero-shot classification, graph tracing, pmla compliance. *smart india hackathon r2*
-
-**[ProofWork](https://github.com/ShrikarT/ProofWork)** — agents bid on tasks and prove their reputation through midnight zk circuits without exposing job history, then get paid via cardano escrow. built on masumi (mip-003).
-
-**[GhostLaunch](https://github.com/ShrikarT/GhostLaunch)** — private ido launchpad on encrypted erc. fund in the dark, distribute in the open, verify all of it.
-
-**[ForkFlow](https://github.com/ShrikarT/ForkFlow)** — voice-controlled solana wallet. you say "swap tokens", jupiter does the rest. *namastejupiverse winner*
-
-**dietary analysis** — mobilenetv2 fine-tuned on 6k indian food images. 88.7% accuracy, 9.3pp over published benchmarks.
 
 #### wins
 
-- won **namastejupiverse hackathon** — forkflow
-- won **monad hackathon** — flashgrid
+- won **NamasteJupiverse hackathon**, hyderabad 
+- special mention in **monad hackathon**
 - won **avalanche team1 hackathon**, hyderabad
 - won **avalanche pitch day india**, representing xythum labs
 - avalanche grants program participant
@@ -60,7 +48,8 @@ i got here backwards — started trading crypto, got curious about what was actu
 
 traded crypto for 3+ years before i wrote a line of solidity — spot, perps, defi. order books and liquidity still make more intuitive sense to me than most rest apis do.
 
-shipped an indie game called *demise* at 16 in unreal. might still be the most fun i've had building anything. i run builder sessions with hyderabaddao. chess, gym, too many open terminal tabs.
+shipped an indie game called *demise* at 16 in unreal. might still be the most fun i've had building anything. im active with hyderabaddao. 
+chess, gym, too many open terminal tabs.
 
 i'm still filling gaps in my cs fundamentals — if you catch me reaching for something clever when the boring thing would work, tell me.
 
