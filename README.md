@@ -45,8 +45,8 @@ i got here backwards — started trading crypto, got curious about what was actu
 #### telemetry
 
 <p align="left">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=ShrikarT&show_icons=true&hide_title=true&hide_border=true&bg_color=00000000&title_color=e6e6e6&text_color=8b8b93&icon_color=e6e6e6&include_all_commits=true&count_private=true&rank_icon=github" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ShrikarT&layout=compact&hide_title=true&hide_border=true&bg_color=00000000&title_color=e6e6e6&text_color=8b8b93&langs_count=6" />
+  <img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=ShrikarT&theme=github_dark" />
+  <img height="200" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=ShrikarT&theme=github_dark" />
 </p>
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=ShrikarT&bg_color=00000000&color=e6e6e6&line=e6e6e6&point=ffffff&area=true&area_color=8b8b93&hide_border=true&custom_title=shipping%20velocity" width="100%" />
