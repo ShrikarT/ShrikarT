@@ -1,10 +1,12 @@
-![gif](https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif)
+<img align="right" width="340" src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" />
 
 ### hey, i'm shrikar
 
 i build things in web3 and ai. mostly at 3am, mostly things that probably shouldn't work.
 
 i got here backwards — started trading crypto, got curious about what was actually happening under the charts, and ended up writing the contracts instead. 3rd year ece at cbit hyderabad, graduating 2027. i'd rather ship something rough and fix it in public than read about it for six months.
+
+<br clear="right" />
 
 #### what i'm doing right now
 
