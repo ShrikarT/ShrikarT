@@ -2,7 +2,7 @@
 
 ### hey im shrikar
 
-i build things in web3 and ai. mostly at 3am, mostly things that probably shouldn't work.
+i build things in web3 and ai.
 
 i got here backwards 
 started trading crypto got curious about what was actually happening under the charts and ended up writing the contracts instead. 
@@ -19,7 +19,7 @@ i'd rather ship something rough and fix it in public than read about it for six 
 - **[BlockIntel](https://github.com/ShrikarT/blockintel)** — crypto intelligence for law enforcement. wallet risk scoring, zero-shot classification, graph tracing, pmla compliance. *smart india hackathon r2*
 - **[ProofWork](https://github.com/ShrikarT/ProofWork)** — agents bid on tasks and prove their reputation through midnight zk circuits without exposing job history, then get paid via cardano escrow. built on masumi (mip-003).
 - **[GhostLaunch](https://github.com/ShrikarT/GhostLaunch)** — private ido launchpad on encrypted erc. fund in the dark, distribute in the open, verify all of it.
-- **right now** — rebuilding my hackathon projects into things that work end to end, going deeper on evm internals, and writing about it on [x](https://x.com/0xshrikar)
+- **right now** — rebuilding my hackathon projects into things that work end to end, going deeper on ai tech, and writing about it on [x](https://x.com/0xshrikar)
 
 #### wins
 
@@ -48,8 +48,8 @@ i'd rather ship something rough and fix it in public than read about it for six 
 
 traded crypto for 3+ years before i wrote a line of solidity — spot, perps, defi. order books and liquidity still make more intuitive sense to me than most rest apis do.
 
-shipped an indie game called *demise* at 16 in unreal. might still be the most fun i've had building anything. im active with hyderabaddao. 
-chess, gym, too many open terminal tabs.
+shipped an indie game called *demise* at 16 in unreal. might still be the most fun i've had building anything. 
+im active with hyderabaddao. chess, gym, too many open terminal tabs.
 
 i'm still filling gaps in my cs fundamentals — if you catch me reaching for something clever when the boring thing would work, tell me.
 
