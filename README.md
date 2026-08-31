@@ -43,7 +43,7 @@ i'd rather ship something rough and fix it in public than read about it for six 
 
 <img src="assets/telemetry.svg" width="100%" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=ShrikarT&bg_color=0A0A0A&color=ffffff&line=ffffff&point=ffffff&area=true&area_color=333333&hide_border=true&custom_title=SHIPPING%20VELOCITY" width="100%" />
+<img src="assets/activity-graph.svg" width="100%" alt="GitHub activity graph" />
 
 #### other things
 
