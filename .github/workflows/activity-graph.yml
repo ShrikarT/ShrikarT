@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - .github/workflows/activity-graph.yml
+      - scripts/render_telemetry.py
   schedule:
     - cron: "17 0 * * *"
   workflow_dispatch:
@@ -34,17 +35,22 @@ jobs:
           output_path: assets/activity-graph.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit refreshed graph
+      - name: Refresh telemetry counts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/render_telemetry.py assets/telemetry.svg
+
+      - name: Commit refreshed graphs
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/activity-graph.svg
+          git add assets/activity-graph.svg assets/telemetry.svg
 
           if git diff --cached --quiet; then
-            echo "Activity graph is already current."
+            echo "Graphs are already current."
             exit 0
           fi
 
-          git commit -m "chore: refresh profile activity graph"
+          git commit -m "chore: refresh profile graphs"
           git push
