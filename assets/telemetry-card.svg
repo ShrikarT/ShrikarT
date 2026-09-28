@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="336" viewBox="0 0 720 336">
+  <rect width="720" height="336" fill="#0A0A0A"/>
+  <text x="24" y="32" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">TELEMETRY — WHAT THE HANDS ARE DOING</text>
+  <text x="696" y="32" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" text-anchor="end">FIG. 01</text>
+  <rect x="24" y="44" width="672" height="1" fill="#FFFFFF" opacity="0.55"/>
+  <text x="24" y="68" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" opacity="0.55">LANGUAGE BY REPO · NOT BY BYTES</text>
+  <text x="24" y="96" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">typescript</text>
+  <text x="696" y="96" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" text-anchor="end" opacity="0.85">10 · 43%</text>
+  <rect x="24" y="104" width="200" height="5" fill="#FFFFFF"/>
+  <text x="24" y="132" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">javascript</text>
+  <text x="696" y="132" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" text-anchor="end" opacity="0.85">7 · 30%</text>
+  <rect x="24" y="140" width="140" height="5" fill="#FFFFFF"/>
+  <text x="24" y="168" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">html</text>
+  <text x="696" y="168" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" text-anchor="end" opacity="0.85">2 · 9%</text>
+  <rect x="24" y="176" width="40" height="5" fill="#FFFFFF"/>
+  <text x="24" y="204" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">circom</text>
+  <text x="696" y="204" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" text-anchor="end" opacity="0.85">1 · 4%</text>
+  <rect x="24" y="212" width="20" height="5" fill="#FFFFFF"/>
+  <text x="24" y="240" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">other</text>
+  <text x="696" y="240" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" text-anchor="end" opacity="0.85">3 · 13%</text>
+  <rect x="24" y="248" width="60" height="5" fill="#FFFFFF"/>
+  <text x="24" y="304" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26">24</text>
+  <text x="24" y="322" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" opacity="0.6">PUBLIC REPOS</text>
+  <text x="192" y="304" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26">23</text>
+  <text x="192" y="322" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" opacity="0.6">REPOS WITH CODE</text>
+  <text x="360" y="304" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26">03</text>
+  <text x="360" y="322" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" opacity="0.6">COMPETITIONS WON</text>
+  <text x="528" y="304" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26">∞</text>
+  <text x="528" y="322" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" opacity="0.6">TERMINAL TABS</text>
+</svg>
