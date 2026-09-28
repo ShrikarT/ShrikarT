@@ -1,12 +1,14 @@
-<img src="assets/telemetry.svg" width="100%" />
+<img align="right" width="340" src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" />
 
 ### hey im shrikar
 
 i build things that sit under markets. privacy systems, order books, and the filters you run when the tape is noisy.
 
-got here backwards. traded crypto for a few years, got curious about what was actually happening under the charts, and ended up writing the contracts instead.
-
+got here backwards. <br>
+traded crypto for a few years, got curious about what was actually happening under the charts, and ended up writing the contracts instead. <br>
 i'd rather ship something rough and fix it in public than read about it for six months.
+
+<br clear="right" />
 
 #### what i'm actually building
 
@@ -25,6 +27,12 @@ older stuff is still on the profile if you want the hackathon versions: flashgri
 `pytorch` `numpy` `cuda` `itch` <br>
 `next.js` `fastapi` `postgres` `docker` `linux`
 
+#### telemetry
+
+<img src="assets/telemetry.svg?v=2" width="100%" />
+
+<img src="assets/activity-graph.svg?v=2" width="100%" alt="github activity" />
+
 #### other things
 
 shipped an indie game called *demise* at 16 in unreal. might still be the most fun i've had building anything.
@@ -38,5 +46,3 @@ namastejupiverse, avalanche team1, avalanche pitch day. monad blitz mention. sih
 #### say hi
 
 [x](https://x.com/0xshrikar) · [linkedin](https://www.linkedin.com/in/shrikartadkasat) · [github](https://github.com/ShrikarT) · [shrikartadkasat@gmail.com](mailto:shrikartadkasat@gmail.com)
-
-<img src="assets/activity-graph.svg" width="100%" alt="github activity" />
