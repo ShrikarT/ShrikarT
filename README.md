@@ -29,9 +29,9 @@ older stuff is still on the profile if you want the hackathon versions: flashgri
 
 #### telemetry
 
-<img src="assets/telemetry.svg?v=2" width="100%" />
+<img src="assets/telemetry-card.svg" width="100%" />
 
-<img src="assets/activity-graph.svg?v=2" width="100%" alt="github activity" />
+<img src="assets/activity-graph.svg" width="100%" alt="github activity" />
 
 #### other things
 

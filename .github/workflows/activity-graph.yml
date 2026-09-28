@@ -40,7 +40,7 @@ jobs:
       - name: Refresh telemetry counts
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 scripts/render_telemetry.py assets/telemetry.svg
+        run: python3 scripts/render_telemetry.py assets/telemetry-card.svg
 
       - name: Commit refreshed graphs
         shell: bash
@@ -48,7 +48,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin main
-          git add assets/activity-graph.svg assets/telemetry.svg
+          git add assets/activity-graph.svg assets/telemetry-card.svg
 
           if git diff --cached --quiet; then
             echo "Graphs are already current."

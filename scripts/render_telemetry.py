@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
-"""Rewrite assets/telemetry.svg from live GitHub stats.
+"""Rewrite the telemetry card from GitHub primary languages.
 
-Same canvas, type, and bars. Only the language mix and the counts move.
-Competitions won and the terminal-tabs joke are not on the API, so they stay.
+Counts repos, not bytes. Byte share made one Circom repo look like a third
+of the work and pulled Go in from inside other trees. One repo, one vote.
 """
 
 import json
 import os
 import sys
 import urllib.request
+from collections import Counter
 
 USER = "ShrikarT"
 WINS = 3  # namastejupiverse, avalanche team1, avalanche pitch day
-OUT = sys.argv[1] if len(sys.argv) > 1 else "assets/telemetry.svg"
+OUT = sys.argv[1] if len(sys.argv) > 1 else "assets/telemetry-card.svg"
 
 
 def get(url: str):
@@ -44,83 +45,79 @@ def list_repos():
     return repos
 
 
+def render(public_n: int, shipped_n: int, rows: list[tuple[str, int]]) -> str:
+    total = sum(n for _, n in rows) or 1
+    # Whole card stays inside 720px so the readme column cannot crop the stats.
+    w, h = 720, 78 + len(rows) * 36 + 78
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}">',
+        f'  <rect width="{w}" height="{h}" fill="#0A0A0A"/>',
+        '  <text x="24" y="32" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">TELEMETRY — WHAT THE HANDS ARE DOING</text>',
+        f'  <text x="{w - 24}" y="32" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" text-anchor="end">FIG. 01</text>',
+        f'  <rect x="24" y="44" width="{w - 48}" height="1" fill="#FFFFFF" opacity="0.55"/>',
+        '  <text x="24" y="68" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" opacity="0.55">LANGUAGE BY REPO · NOT BY BYTES</text>',
+    ]
+    bar_max = 460
+    for i, (name, n) in enumerate(rows):
+        y = 96 + i * 36
+        bw = max(6, round(bar_max * n / total))
+        pct = round(100 * n / total)
+        parts.append(
+            f'  <text x="24" y="{y}" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">{name}</text>'
+        )
+        parts.append(
+            f'  <text x="{w - 24}" y="{y}" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" text-anchor="end" opacity="0.85">{n} · {pct}%</text>'
+        )
+        parts.append(
+            f'  <rect x="24" y="{y + 8}" width="{bw}" height="5" fill="#FFFFFF"/>'
+        )
+
+    base = 96 + len(rows) * 36 + 28
+    stats = [
+        (public_n if public_n < 100 else public_n, "PUBLIC REPOS"),
+        (shipped_n, "REPOS WITH CODE"),
+        (f"{WINS:02d}", "COMPETITIONS WON"),
+        ("∞", "TERMINAL TABS"),
+    ]
+    col = (w - 48) / 4
+    for i, (num, label) in enumerate(stats):
+        x = 24 + int(i * col)
+        shown = f"{num:02d}" if isinstance(num, int) and num < 100 else str(num)
+        parts.append(
+            f'  <text x="{x}" y="{base}" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26">{shown}</text>'
+        )
+        parts.append(
+            f'  <text x="{x}" y="{base + 18}" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" opacity="0.6">{label}</text>'
+        )
+    parts.append("</svg>")
+    parts.append("")
+    return "\n".join(parts)
+
+
 def main():
     me = get(f"https://api.github.com/users/{USER}")
     repos = list_repos()
     owned = [r for r in repos if not r.get("fork") and r["name"] != USER]
-
-    langs = {}
+    counts: Counter[str] = Counter()
     for repo in owned:
-        try:
-            data = get(repo["languages_url"])
-        except Exception as exc:
-            print(f"skip {repo['name']}: {exc}", file=sys.stderr)
-            continue
-        for name, n in data.items():
-            langs[name] = langs.get(name, 0) + n
+        counts[(repo.get("language") or "other").lower()] += 1
+    if not counts:
+        sys.exit("no repos; refusing to blank the chart")
 
-    total = sum(langs.values())
-    if total <= 0:
-        sys.exit("no language bytes; refusing to blank the chart")
-
-    ranked = sorted(langs.items(), key=lambda kv: -kv[1])
+    ranked = counts.most_common()
     top = ranked[:5]
-    other = total - sum(v for _, v in top)
-    rows = [(name.lower(), n) for name, n in top]
-    if other > 0:
+    other = sum(counts.values()) - sum(n for _, n in top)
+    rows = [(name, n) for name, n in top if name != "other"]
+    other += sum(n for name, n in top if name == "other")
+    if other:
         rows.append(("other", other))
     rows = rows[:6]
 
-    def bar_w(n):
-        return max(8, min(400, round(400 * n / total)))
-
-    name_y = [104, 138, 172, 206, 240, 274]
-    parts = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320">',
-        '  <rect width="900" height="320" fill="#0A0A0A"/>',
-        '  <text x="30" y="36" fill="#FFFFFF" font-family="monospace" font-size="11" letter-spacing="3">TELEMETRY — WHAT THE HANDS ARE DOING</text>',
-        '  <text x="870" y="36" fill="#FFFFFF" font-family="monospace" font-size="11" letter-spacing="3" text-anchor="end">FIG. 01</text>',
-        '  <rect x="30" y="48" width="840" height="1" fill="#FFFFFF" opacity="0.55"/>',
-        '  <text x="30" y="78" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.55">LANGUAGE DISTRIBUTION · LIVE</text>',
-    ]
-    for i, (name, n) in enumerate(rows):
-        y = name_y[i]
-        w = bar_w(n)
-        pct = round(100 * n / total)
-        label_x = min(w + 40, 460)
-        parts.append(
-            f'  <text x="30" y="{y}" fill="#FFFFFF" font-family="monospace" font-size="11">{name}</text>'
-        )
-        parts.append(
-            f'  <rect x="30" y="{y + 8}" width="{w}" height="6" fill="#FFFFFF"/>'
-        )
-        parts.append(
-            f'  <text x="{label_x}" y="{y + 15}" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">{pct}%</text>'
-        )
-
-    def big(n):
-        return f"{n:02d}" if n < 100 else str(n)
-
-    stats = [
-        (122, big(me["public_repos"]), "PUBLIC REPOSITORIES"),
-        (176, big(len(owned)), "PROJECTS SHIPPED"),
-        (230, big(WINS), "COMPETITIONS WON"),
-        (284, "∞", "TERMINAL TABS OPEN"),
-    ]
-    parts.append('  <rect x="500" y="78" width="1" height="212" fill="#FFFFFF" opacity="0.25"/>')
-    for y, num, label in stats:
-        parts.append(
-            f'  <text x="545" y="{y}" fill="#FFFFFF" font-family="monospace" font-size="32">{num}</text>'
-        )
-        parts.append(
-            f'  <text x="620" y="{y - 4}" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">{label}</text>'
-        )
-    parts.append("</svg>")
-    parts.append("")
+    svg = render(me["public_repos"], len(owned), rows)
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
-        f.write("\n".join(parts))
-    print(f"wrote {OUT} repos={me['public_repos']} shipped={len(owned)}")
+        f.write(svg)
+    print(f"wrote {OUT} public={me['public_repos']} repos={len(owned)} {rows}")
 
 
 if __name__ == "__main__":
