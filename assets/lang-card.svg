@@ -8,38 +8,30 @@
   <text x="30" y="78" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.55">LANGUAGE DISTRIBUTION · EST.</text>
 
   <text x="30" y="104" fill="#FFFFFF" font-family="monospace" font-size="11">typescript</text>
-  <rect x="30" y="112" width="248" height="6" fill="#FFFFFF"/>
-  <text x="288" y="119" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">31%</text>
+  <rect x="30" y="112" width="344" height="6" fill="#FFFFFF"/>
+  <text x="384" y="119" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">43%</text>
 
   <text x="30" y="138" fill="#FFFFFF" font-family="monospace" font-size="11">javascript</text>
-  <rect x="30" y="146" width="216" height="6" fill="#FFFFFF"/>
-  <text x="256" y="153" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">27%</text>
+  <rect x="30" y="146" width="344" height="6" fill="#FFFFFF"/>
+  <text x="384" y="153" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">43%</text>
 
-  <text x="30" y="172" fill="#FFFFFF" font-family="monospace" font-size="11">solidity</text>
-  <rect x="30" y="180" width="144" height="6" fill="#FFFFFF"/>
-  <text x="184" y="187" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">18%</text>
+  <text x="30" y="172" fill="#FFFFFF" font-family="monospace" font-size="11">circom</text>
+  <rect x="30" y="180" width="56" height="6" fill="#FFFFFF"/>
+  <text x="96" y="187" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">7%</text>
 
-  <text x="30" y="206" fill="#FFFFFF" font-family="monospace" font-size="11">python</text>
-  <rect x="30" y="214" width="104" height="6" fill="#FFFFFF"/>
-  <text x="144" y="221" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">13%</text>
-
-  <text x="30" y="240" fill="#FFFFFF" font-family="monospace" font-size="11">circom</text>
-  <rect x="30" y="248" width="56" height="6" fill="#FFFFFF"/>
-  <text x="96" y="255" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">7%</text>
-
-  <text x="30" y="274" fill="#FFFFFF" font-family="monospace" font-size="11">rust · other</text>
-  <rect x="30" y="282" width="32" height="6" fill="#FFFFFF"/>
-  <text x="72" y="289" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">4%</text>
+  <text x="30" y="206" fill="#FFFFFF" font-family="monospace" font-size="11">html</text>
+  <rect x="30" y="214" width="56" height="6" fill="#FFFFFF"/>
+  <text x="96" y="221" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">7%</text>
 
   <rect x="500" y="78" width="1" height="212" fill="#FFFFFF" opacity="0.25"/>
 
-  <text x="545" y="122" fill="#FFFFFF" font-family="monospace" font-size="32">14</text>
+  <text x="545" y="122" fill="#FFFFFF" font-family="monospace" font-size="32">23</text>
   <text x="620" y="118" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">PUBLIC REPOSITORIES</text>
 
-  <text x="545" y="176" fill="#FFFFFF" font-family="monospace" font-size="32">05</text>
+  <text x="545" y="176" fill="#FFFFFF" font-family="monospace" font-size="32">14</text>
   <text x="620" y="172" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">PROJECTS SHIPPED</text>
 
-  <text x="545" y="230" fill="#FFFFFF" font-family="monospace" font-size="32">03</text>
+  <text x="545" y="230" fill="#FFFFFF" font-family="monospace" font-size="32">06</text>
   <text x="620" y="226" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">COMPETITIONS WON</text>
 
   <text x="545" y="284" fill="#FFFFFF" font-family="monospace" font-size="32">∞</text>

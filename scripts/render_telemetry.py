@@ -1,32 +1,30 @@
 #!/usr/bin/env python3
-"""Refresh assets/telemetry.svg. Same card as the original. Only the numbers move.
+"""Refresh the profile telemetry cards without changing their design."""
 
-One repo, one vote, using the language GitHub shows on the repo.
-Byte totals made GhostLaunch's circuits and its gnark module look like the whole profile.
-"""
-
+import html
+import json
 import os
 import sys
-import json
 import urllib.request
 from collections import Counter
 
 USER = "ShrikarT"
-WINS = 3
-OUT = sys.argv[1] if len(sys.argv) > 1 else "assets/telemetry.svg"
+WINS = 6
+DEFAULT_OUTPUTS = ("assets/lang-card.svg", "assets/telemetry.svg")
 
 
 def get(url: str):
     headers = {
         "User-Agent": "profile-telemetry",
         "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
     }
     token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
     if token:
         headers["Authorization"] = f"Bearer {token}"
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req, timeout=60) as res:
-        return json.load(res)
+    request = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(request, timeout=60) as response:
+        return json.load(response)
 
 
 def list_repos():
@@ -36,34 +34,33 @@ def list_repos():
         batch = get(
             f"https://api.github.com/users/{USER}/repos?per_page=100&page={page}&type=owner"
         )
-        if not batch:
-            break
         repos.extend(batch)
         if len(batch) < 100:
-            break
+            return repos
         page += 1
-    return repos
 
 
 def percent_rows(counts: Counter) -> list[tuple[str, int]]:
     ranked = counts.most_common()
     top = ranked[:5]
-    names = [n for n, _ in top]
-    other = sum(counts.values()) - sum(n for _, n in top)
+    other = sum(counts.values()) - sum(amount for _, amount in top)
     rows = list(top)
     if other:
         rows.append(("other", other))
-    total = sum(n for _, n in rows) or 1
-    raw = [100 * n / total for _, n in rows]
-    floors = [int(v) for v in raw]
-    left = 100 - sum(floors)
-    order = sorted(range(len(rows)), key=lambda i: raw[i] - floors[i], reverse=True)
-    for i in order[:left]:
-        floors[i] += 1
-    return [(name, pct) for (name, _), pct in zip(rows, floors)]
+
+    total = sum(amount for _, amount in rows) or 1
+    raw = [100 * amount / total for _, amount in rows]
+    percentages = [int(value) for value in raw]
+    remainder = 100 - sum(percentages)
+    order = sorted(
+        range(len(rows)), key=lambda index: raw[index] - percentages[index], reverse=True
+    )
+    for index in order[:remainder]:
+        percentages[index] += 1
+    return [(name.lower(), percent) for (name, _), percent in zip(rows, percentages)]
 
 
-def render(public_n: int, shipped_n: int, rows: list[tuple[str, int]]) -> str:
+def render(public_repos: int, projects_shipped: int, rows: list[tuple[str, int]]) -> str:
     name_y = [104, 138, 172, 206, 240, 274]
     lines = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320">',
@@ -76,56 +73,69 @@ def render(public_n: int, shipped_n: int, rows: list[tuple[str, int]]) -> str:
         '  <text x="30" y="78" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.55">LANGUAGE DISTRIBUTION · EST.</text>',
         "",
     ]
-    for i, (name, pct) in enumerate(rows[:6]):
-        y = name_y[i]
-        width = max(8, pct * 8)
-        lines.append(
-            f'  <text x="30" y="{y}" fill="#FFFFFF" font-family="monospace" font-size="11">{name}</text>'
-        )
-        lines.append(
-            f'  <rect x="30" y="{y + 8}" width="{width}" height="6" fill="#FFFFFF"/>'
-        )
-        lines.append(
-            f'  <text x="{30 + width + 10}" y="{y + 15}" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">{pct}%</text>'
-        )
-        lines.append("")
 
-    def big(n: int) -> str:
-        return f"{n:02d}" if n < 100 else str(n)
+    for index, (name, percent) in enumerate(rows[:6]):
+        y = name_y[index]
+        width = max(8, percent * 8)
+        safe_name = html.escape(name)
+        lines.extend(
+            [
+                f'  <text x="30" y="{y}" fill="#FFFFFF" font-family="monospace" font-size="11">{safe_name}</text>',
+                f'  <rect x="30" y="{y + 8}" width="{width}" height="6" fill="#FFFFFF"/>',
+                f'  <text x="{30 + width + 10}" y="{y + 15}" fill="#FFFFFF" font-family="monospace" font-size="10" opacity="0.7">{percent}%</text>',
+                "",
+            ]
+        )
 
-    lines += [
-        '  <rect x="500" y="78" width="1" height="212" fill="#FFFFFF" opacity="0.25"/>',
-        "",
-        f'  <text x="545" y="122" fill="#FFFFFF" font-family="monospace" font-size="32">{big(public_n)}</text>',
-        '  <text x="620" y="118" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">PUBLIC REPOSITORIES</text>',
-        "",
-        f'  <text x="545" y="176" fill="#FFFFFF" font-family="monospace" font-size="32">{big(shipped_n)}</text>',
-        '  <text x="620" y="172" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">PROJECTS SHIPPED</text>',
-        "",
-        f'  <text x="545" y="230" fill="#FFFFFF" font-family="monospace" font-size="32">{big(WINS)}</text>',
-        '  <text x="620" y="226" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">COMPETITIONS WON</text>',
-        "",
-        '  <text x="545" y="284" fill="#FFFFFF" font-family="monospace" font-size="32">∞</text>',
-        '  <text x="620" y="280" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">TERMINAL TABS OPEN</text>',
-        "</svg>",
-        "",
-    ]
+    def display(number: int) -> str:
+        return f"{number:02d}" if number < 100 else str(number)
+
+    lines.extend(
+        [
+            '  <rect x="500" y="78" width="1" height="212" fill="#FFFFFF" opacity="0.25"/>',
+            "",
+            f'  <text x="545" y="122" fill="#FFFFFF" font-family="monospace" font-size="32">{display(public_repos)}</text>',
+            '  <text x="620" y="118" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">PUBLIC REPOSITORIES</text>',
+            "",
+            f'  <text x="545" y="176" fill="#FFFFFF" font-family="monospace" font-size="32">{display(projects_shipped)}</text>',
+            '  <text x="620" y="172" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">PROJECTS SHIPPED</text>',
+            "",
+            f'  <text x="545" y="230" fill="#FFFFFF" font-family="monospace" font-size="32">{display(WINS)}</text>',
+            '  <text x="620" y="226" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">COMPETITIONS WON</text>',
+            "",
+            '  <text x="545" y="284" fill="#FFFFFF" font-family="monospace" font-size="32">∞</text>',
+            '  <text x="620" y="280" fill="#FFFFFF" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.75">TERMINAL TABS OPEN</text>',
+            "</svg>",
+            "",
+        ]
+    )
     return "\n".join(lines)
 
 
 def main():
-    me = get(f"https://api.github.com/users/{USER}")
+    profile = get(f"https://api.github.com/users/{USER}")
     repos = list_repos()
-    owned = [r for r in repos if not r.get("fork") and r["name"] != USER and r.get("language")]
-    counts: Counter[str] = Counter((r["language"] or "other").lower() for r in owned)
+    projects = [
+        repo
+        for repo in repos
+        if not repo.get("fork") and repo["name"] != USER and repo.get("language")
+    ]
+    counts = Counter(repo["language"] for repo in projects)
     if not counts:
-        sys.exit("no languages; refusing to blank the chart")
+        sys.exit("No repository languages found; refusing to blank the chart.")
+
     rows = percent_rows(counts)
-    svg = render(me["public_repos"], len(owned), rows)
-    os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
-    with open(OUT, "w", encoding="utf-8") as f:
-        f.write(svg)
-    print(f"wrote {OUT} public={me['public_repos']} shipped={len(owned)} {rows}")
+    svg = render(profile["public_repos"], len(projects), rows)
+    outputs = tuple(sys.argv[1:]) or DEFAULT_OUTPUTS
+    for output in outputs:
+        os.makedirs(os.path.dirname(output) or ".", exist_ok=True)
+        with open(output, "w", encoding="utf-8") as file:
+            file.write(svg)
+
+    print(
+        f"updated {', '.join(outputs)}: public={profile['public_repos']} "
+        f"shipped={len(projects)} languages={rows}"
+    )
 
 
 if __name__ == "__main__":
