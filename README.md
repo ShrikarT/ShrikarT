@@ -41,4 +41,4 @@ wins : namastejupiverse, avalanche team1, avalanche pitch day, team1 mini grants
 
 #### say hi
 
-[x](https://x.com/0xshrikar) · [github](https://github.com/ShrikarT) · [REDACTED](mailto:REDACTED)
+[x](https://x.com/0xshrikar) · [github](https://github.com/ShrikarT) 
