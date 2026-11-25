@@ -12,7 +12,7 @@ i'd rather ship something rough and fix it in public than read about it for six 
 
 #### what i'm actually building
 
-- **[hisoka.io](https://hisoka.io)** — founding team, protocol r&d (was xythum labs). zk circuits for a confidential dark pool on a zk-utxo model. frost threshold schnorr, sphinx packets through the nox mixnet. the point was leaving mev nothing to read.
+- **[hisoka.io](https://hisoka.io)** — contributor, protocol r&d (was xythum labs). zk circuits for a confidential dark pool on a zk-utxo model. frost threshold schnorr, sphinx packets through the nox mixnet. the point was leaving mev nothing to read.
 - **[nexus lob](https://github.com/Lokeshrao69/Nexus_LOB)** — co-building a hybrid limit-order-book stack. zero-allocation c++20 matcher, itch 5.0 replay, gymnasium agents, cuda monte-carlo risk. checked against a full nasdaq session of aapl and qqq.
 - **[camase](https://github.com/ShrikarT/camase)** — causal à trous wavelets feeding an adaptive kalman filter, with audits that fail the build if the filter peeks at the future. [lab](https://camase.grok.me/). still experimental. the paper says when it loses.
 
