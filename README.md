@@ -33,7 +33,7 @@ i'd rather ship something rough and fix it in public than read about it for six 
 
 shipped an indie game called *demise* at 16 in unreal. might still be the most fun i've had building anything.
 
-hyderabaddao. chess, gym, too many open terminal tabs.
+chess, gym n too many open terminal tabs.
 
 i'm still filling gaps in my cs fundamentals. if you catch me reaching for something clever when the boring thing would work, tell me.
 
@@ -41,4 +41,4 @@ wins : namastejupiverse, avalanche team1, avalanche pitch day, team1 mini grants
 
 #### say hi
 
-[x](https://x.com/0xshrikar) · [linkedin](https://www.linkedin.com/in/shrikartadkasat) · [github](https://github.com/ShrikarT) · [REDACTED](mailto:REDACTED)
+[x](https://x.com/0xshrikar) · [github](https://github.com/ShrikarT) · [REDACTED](mailto:REDACTED)
